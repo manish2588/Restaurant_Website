@@ -33,6 +33,9 @@ function Footer() {
               <div className="p-1">
                 <FaWhatsapp size={30} color="blue" />
               </div>
+              <div>
+                
+              </div>
             </div>
           </div>
         </div>
