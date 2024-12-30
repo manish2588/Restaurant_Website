@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
 import "./App.css";
 import AboutPage from "./pages/AboutPage";
+import FoodPage from "./pages/FoodPage";
+import { foodLoader } from "./components/Loader";
 
 function App() {
   const router=createBrowserRouter([
@@ -12,6 +14,11 @@ function App() {
         {
           path:"about",
           element:<AboutPage/>
+        },
+        {
+          path:"menu",
+          element:<FoodPage/>,
+          loader:foodLoader
         }
       ]
     }

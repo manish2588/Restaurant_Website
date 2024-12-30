@@ -10,7 +10,7 @@ function AboutPage() {
             <p className="font-extralight"> Namaste !From </p>
             <h1 className="text-4xl font-bold font-serif"> Nepali Bhanchha</h1>
             <br />
-            <p className="font-light text-base text-justify">
+            <p className="font-light text-base ">
               Nepali Bhanchha is an authentic Nepali restaurant that serves
               traditional and delicious cuisine. The restaurant offers an
               immersive cultural experience, featuring live cultural shows that

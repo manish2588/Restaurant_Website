@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
 
@@ -47,7 +48,16 @@ function NavBar() {
               </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
-              MENUS
+              <NavLink
+                to="/menu"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-red-500 hover:text-red-500"
+                    : "text-white hover:text-red-500"
+                }
+              >
+                MENU
+              </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
               TODAY SPECIAL
@@ -74,15 +84,34 @@ function NavBar() {
         >
           <span
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="text-lg"
+            className="text-lg cursor-pointer"
           >
             x
           </span>
           <div className="text-black font-medium text-lg">
-            {" "}
-            <NavLink to="/about">ABOUT RESTAURANT</NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-red-500 hover:text-red-500"
+                  : "text-black hover:text-red-500"
+              }
+            >
+              ABOUT RESTAURANT
+            </NavLink>
           </div>
-          <div className="text-black font-medium text-lg">MENUS</div>
+          <div className="text-black font-medium text-lg">
+            <NavLink
+              to="/menu"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-red-500 hover:text-red-500"
+                  : "text-black hover:text-red-500"
+              }
+            >
+              MENU
+            </NavLink>
+          </div>
           <div className="text-black font-medium text-lg">TODAY SPECIAL</div>
           <div className="text-black font-medium text-lg">CONTACT</div>
         </div>
