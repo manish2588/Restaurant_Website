@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { NavLink } from "react-router-dom";
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
 
@@ -13,10 +13,7 @@ function NavBar() {
       <div className="bg-black opacity-50 p-4 lg:p-6">
         <div className="flex justify-between items-center">
           {/* Hamburger Button for small screens */}
-          <button
-            onClick={toggleSidebar}
-            className="lg:hidden p-4 text-white"
-          >
+          <button onClick={toggleSidebar} className="lg:hidden p-4 text-white">
             {/* Hamburger icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,10 +34,27 @@ function NavBar() {
           {/* Navbar links for larger screens */}
           <div className="hidden lg:flex justify-center space-x-8 lg:space-x-14 w-full max-w-6xl mx-auto">
             {/* Centered horizontally */}
-            <div className="text-white font-medium lg:text-lg text-base">ABOUT RESTAURANT</div>
-            <div className="text-white font-medium lg:text-lg text-base">MENUS</div>
-            <div className="text-white font-medium lg:text-lg text-base">TODAY SPECIAL</div>
-            <div className="text-white font-medium lg:text-lg text-base">CONTACT</div>
+            <div className="text-white font-medium lg:text-lg text-base">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-red-500 hover:text-red-500"
+                    : "text-white hover:text-red-500"
+                }
+              >
+                ABOUT RESTAURANT
+              </NavLink>
+            </div>
+            <div className="text-white font-medium lg:text-lg text-base">
+              MENUS
+            </div>
+            <div className="text-white font-medium lg:text-lg text-base">
+              TODAY SPECIAL
+            </div>
+            <div className="text-white font-medium lg:text-lg text-base">
+              CONTACT
+            </div>
           </div>
         </div>
       </div>
@@ -57,9 +71,17 @@ function NavBar() {
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()} // Prevent closing sidebar when clicking inside
-        > 
-          <span onClick={()=>setIsSidebarOpen(!isSidebarOpen)} className="text-lg">x</span>
-          <div className="text-black font-medium text-lg">ABOUT RESTAURANT</div>
+        >
+          <span
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="text-lg"
+          >
+            x
+          </span>
+          <div className="text-black font-medium text-lg">
+            {" "}
+            <NavLink to="/about">ABOUT RESTAURANT</NavLink>
+          </div>
           <div className="text-black font-medium text-lg">MENUS</div>
           <div className="text-black font-medium text-lg">TODAY SPECIAL</div>
           <div className="text-black font-medium text-lg">CONTACT</div>
