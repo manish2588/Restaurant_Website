@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 function AboutPage() {
   return (
     <>
@@ -29,6 +31,7 @@ function AboutPage() {
               yourself in the culture of Nepal.
             </p>
           </div>
+          <Button> Hello</Button>
         </section>
 
         <section

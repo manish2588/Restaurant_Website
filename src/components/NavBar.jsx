@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
-
+  const { cart } = useSelector((state) => state.cart);
+  const cartLength=cart.length;
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
   };
@@ -11,7 +13,7 @@ function NavBar() {
   return (
     <div>
       {/* Navbar Container */}
-      <div className="bg-black opacity-50 p-4 lg:p-6">
+      <div className="bg-black opacity-75 p-4 lg:p-6">
         <div className="flex justify-between items-center">
           {/* Hamburger Button for small screens */}
           <button onClick={toggleSidebar} className="lg:hidden p-4 text-white">
@@ -40,8 +42,8 @@ function NavBar() {
                 to="/about"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-red-500 hover:text-red-500"
-                    : "text-white hover:text-red-500"
+                    ? "text-red-600 hover:text-red-600"
+                    : "text-white hover:text-red-600"
                 }
               >
                 ABOUT RESTAURANT
@@ -52,11 +54,11 @@ function NavBar() {
                 to="/menu"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-red-500 hover:text-red-500"
-                    : "text-white hover:text-red-500"
+                    ? "text-red-600 hover:text-red-600"
+                    : "text-white hover:text-red-600"
                 }
               >
-                MENU
+                ORDER
               </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
@@ -64,6 +66,23 @@ function NavBar() {
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
               CONTACT
+            </div>
+            <div className="text-white font-medium lg:text-lg text-base flex">
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 hover:text-red-600"
+                    : "text-white hover:text-red-600"
+                }
+              >
+               <FaShoppingCart className="p-1" size={30}/>
+              </NavLink>
+              <span>
+                {
+                  cartLength>0&&(<span>{cartLength}</span>)
+                }
+                </span>
             </div>
           </div>
         </div>
@@ -93,8 +112,8 @@ function NavBar() {
               to="/about"
               className={({ isActive }) =>
                 isActive
-                  ? "text-red-500 hover:text-red-500"
-                  : "text-black hover:text-red-500"
+                  ? "text-red-600 hover:text-red-600"
+                  : "text-black hover:text-red-600"
               }
             >
               ABOUT RESTAURANT
@@ -105,15 +124,44 @@ function NavBar() {
               to="/menu"
               className={({ isActive }) =>
                 isActive
-                  ? "text-red-500 hover:text-red-500"
-                  : "text-black hover:text-red-500"
+                  ? "text-red-600 hover:text-red-600"
+                  : "text-black hover:text-red-600"
               }
             >
-              MENU
+              ORDER
             </NavLink>
           </div>
-          <div className="text-black font-medium text-lg">TODAY SPECIAL</div>
+          <div className="text-black font-medium text-lg">
+            {" "}
+            <NavLink
+              to="/special"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-red-600 hover:text-red-600"
+                  : "text-black hover:text-red-600"
+              }
+            >
+              TODAY SPECIAL
+            </NavLink>
+          </div>
           <div className="text-black font-medium text-lg">CONTACT</div>
+          <div className="text-black font-medium text-lg flex">
+          <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-red-600 hover:text-red-600"
+                  : "text-black hover:text-red-600"
+              }
+            >
+             <FaShoppingCart className="p-1" size={30}/>
+            </NavLink>
+            <span>
+                {
+                  cartLength>0&&(<span>{cartLength}</span>)
+                }
+                </span>
+          </div>
         </div>
       </div>
     </div>
