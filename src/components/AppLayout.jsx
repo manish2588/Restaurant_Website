@@ -18,7 +18,7 @@ function AppLayout() {
     <>
       <Header />
       <Outlet />
-      <Footer />
+     
     </>
   );
 }

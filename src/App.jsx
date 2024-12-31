@@ -6,6 +6,7 @@ import FoodPage from "./pages/FoodPage";
 import { foodLoader } from "./components/Loader";
 import TodaySpecial from "./pages/TodaySpecial";
 import CartPage from "./pages/CartPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const router=createBrowserRouter([
@@ -29,6 +30,10 @@ function App() {
         {
           path:"cart",
           element:<CartPage/>,
+        },
+        {
+          path:"contact",
+          element:<ContactPage/>
         }
       ]
     }

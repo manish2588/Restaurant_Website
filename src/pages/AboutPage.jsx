@@ -39,7 +39,7 @@ function AboutPage() {
           className=" basis-1/2 flex justify-center w-full h-screen"
         >
           <div className=" lg:w-3/5 lg:h-4/5 lg:my-auto overflow-hidden">
-            <img src="/image/BG.jpg" className="h-full p-4 lg:p-0 hover:scale-125 duration-1000 ease-in-out " />
+            <img src="/image/BG.jpg" className="h-full p-4 lg:p-0 hover:scale-110 duration-1000 ease-in-out " />
           </div>
         </section>
       </main>

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
   const { cart } = useSelector((state) => state.cart);
-  const cartLength=cart.length;
+  const cartLength = cart.length;
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
   };
@@ -62,10 +62,28 @@ function NavBar() {
               </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
-              TODAY SPECIAL
+              <NavLink
+                to="/special"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 hover:text-red-600"
+                    : "text-white hover:text-red-600"
+                }
+              >
+                MENU
+              </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
-              CONTACT
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-red-600 hover:text-red-600"
+                    : "text-white hover:text-red-600"
+                }
+              >
+                CONTACT
+              </NavLink>
             </div>
             <div className="text-white font-medium lg:text-lg text-base flex">
               <NavLink
@@ -76,13 +94,9 @@ function NavBar() {
                     : "text-white hover:text-red-600"
                 }
               >
-               <FaShoppingCart className="p-1" size={30}/>
+                <FaShoppingCart className="p-1" size={30} />
               </NavLink>
-              <span>
-                {
-                  cartLength>0&&(<span>{cartLength}</span>)
-                }
-                </span>
+              <span>{cartLength > 0 && <span>{cartLength}</span>}</span>
             </div>
           </div>
         </div>
@@ -141,12 +155,23 @@ function NavBar() {
                   : "text-black hover:text-red-600"
               }
             >
-              TODAY SPECIAL
+              MENU
             </NavLink>
           </div>
-          <div className="text-black font-medium text-lg">CONTACT</div>
+          <div className="text-black font-medium text-lg">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-red-600 hover:text-red-600"
+                  : "text-black hover:text-red-600"
+              }
+            >
+              CONTACT
+            </NavLink>
+          </div>
           <div className="text-black font-medium text-lg flex">
-          <NavLink
+            <NavLink
               to="/cart"
               className={({ isActive }) =>
                 isActive
@@ -154,13 +179,9 @@ function NavBar() {
                   : "text-black hover:text-red-600"
               }
             >
-             <FaShoppingCart className="p-1" size={30}/>
+              <FaShoppingCart className="p-1" size={30} />
             </NavLink>
-            <span>
-                {
-                  cartLength>0&&(<span>{cartLength}</span>)
-                }
-                </span>
+            <span>{cartLength > 0 && <span>{cartLength}</span>}</span>
           </div>
         </div>
       </div>

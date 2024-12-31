@@ -8,7 +8,7 @@ function TodaySpecial() {
           <div className="lg:w-3/5 lg:mx-auto h-4/5 overflow-hidden mt-8 p-4 lg:p-0 ">
             <img
               src="/image/Onee.png"
-              className="h-full w-full object-cover hover:scale-125 duration-1000 ease-in-out"
+              className="h-full w-full object-cover hover:scale-110 duration-1000 ease-in-out"
             />
           </div>
         </section>
