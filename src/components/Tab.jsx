@@ -10,9 +10,7 @@ export function TabsDemo() {
         <TabsTrigger value="veg">Veg</TabsTrigger>
         <TabsTrigger value="dessert">Dessert</TabsTrigger>
       </TabsList>
-      <TabsContent value="non-veg"
-      
-      >
+      <TabsContent value="non-veg" >
         <Card>
           <CardHeader>
             <CardTitle className="font-serif">Non-Veg</CardTitle>

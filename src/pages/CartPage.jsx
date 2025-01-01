@@ -17,12 +17,12 @@ function CartPage() {
   if (cart.length < 1)
     return (
       <div className="flex justify-center items-center h-screen font-semibold text-4xl">
-        No Items In Cart
+      <h1 className="p-2 border border-r-4 ">  No Items In Cart</h1>
       </div>
     );
 
   return (
-    <main className="p-4 lg:p-8">
+    <main className="p-4 lg:p-8" id="cart">
       <section id="items">
         {cart && (
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">

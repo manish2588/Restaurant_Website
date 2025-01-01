@@ -1,19 +1,27 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll"; // Importing from react-scroll
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
+
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
+  const [activeLink, setActiveLink] = useState(""); // State for active link
   const { cart } = useSelector((state) => state.cart);
   const cartLength = cart.length;
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+  };
+
+  // Handle active link change
+  const handleSetActive = (to) => {
+    setActiveLink(to); // Update the active link when a section is in view
   };
 
   return (
     <div>
       {/* Navbar Container */}
-      <div className="bg-black opacity-75 p-4 lg:p-6">
+      <div className="bg-black opacity-75 p-2 lg:p-6">
         <div className="flex justify-between items-center">
           {/* Hamburger Button for small screens */}
           <button onClick={toggleSidebar} className="lg:hidden p-4 text-white">
@@ -38,65 +46,70 @@ function NavBar() {
           <div className="hidden lg:flex justify-center space-x-8 lg:space-x-14 w-full max-w-6xl mx-auto">
             {/* Centered horizontally */}
             <div className="text-white font-medium lg:text-lg text-base">
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-600 hover:text-red-600"
-                    : "text-white hover:text-red-600"
-                }
+              <Link
+                to="about"
+                smooth={true}
+                offset={-70}
+                duration={1000}
+                spy={true}
+                onSetActive={() => handleSetActive("about")} // Set active link
+                className={activeLink === "about" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
               >
                 ABOUT RESTAURANT
-              </NavLink>
+              </Link>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
-              <NavLink
-                to="/menu"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-600 hover:text-red-600"
-                    : "text-white hover:text-red-600"
-                }
+              <Link
+                to="menu"
+                smooth={true}
+                offset={-60}
+                duration={1000}
+                spy={true}
+                onSetActive={() => handleSetActive("menu")} // Set active link
+                className={activeLink === "menu" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
               >
                 ORDER
-              </NavLink>
+              </Link>
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
-              <NavLink
-                to="/special"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-600 hover:text-red-600"
-                    : "text-white hover:text-red-600"
-                }
+              <Link
+                to="special"
+                smooth={true}
+                offset={-60}
+                duration={1000}
+                spy={true}
+                onSetActive={() => handleSetActive("special")} // Set active link
+                className={activeLink === "special" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
               >
                 MENU
-              </NavLink>
-            </div>
-            <div className="text-white font-medium lg:text-lg text-base">
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-600 hover:text-red-600"
-                    : "text-white hover:text-red-600"
-                }
-              >
-                CONTACT
-              </NavLink>
+              </Link>
             </div>
             <div className="text-white font-medium lg:text-lg text-base flex">
-              <NavLink
-                to="/cart"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-600 hover:text-red-600"
-                    : "text-white hover:text-red-600"
-                }
+              <Link
+                to="cart"
+                smooth={true}
+                offset={-70}
+                duration={1000}
+                spy={true}
+                onSetActive={() => handleSetActive("cart")} // Set active link
+                className={activeLink === "cart" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
               >
                 <FaShoppingCart className="p-1" size={30} />
-              </NavLink>
+              </Link>
               <span>{cartLength > 0 && <span>{cartLength}</span>}</span>
+            </div>
+            <div className="text-white font-medium lg:text-lg text-base">
+              <Link
+                to="contact"
+                smooth={true}
+                offset={-70}
+                duration={1000}
+                spy={true}
+                onSetActive={() => handleSetActive("contact")} // Set active link
+                className={activeLink === "contact" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              >
+                CONTACT
+              </Link>
             </div>
           </div>
         </div>
@@ -122,65 +135,69 @@ function NavBar() {
             x
           </span>
           <div className="text-black font-medium text-lg">
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-red-600 hover:text-red-600"
-                  : "text-black hover:text-red-600"
-              }
+            <Link
+              to="about"
+              smooth={true}
+              offset={-70}
+              duration={500}
+              spy={true}
+              onSetActive={() => handleSetActive("about")} // Set active link
+              className={activeLink === "about" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
             >
               ABOUT RESTAURANT
-            </NavLink>
+            </Link>
           </div>
           <div className="text-black font-medium text-lg">
-            <NavLink
-              to="/menu"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-red-600 hover:text-red-600"
-                  : "text-black hover:text-red-600"
-              }
+            <Link
+              to="menu"
+              smooth={true}
+              offset={-70}
+              duration={500}
+              spy={true}
+              onSetActive={() => handleSetActive("menu")} // Set active link
+              className={activeLink === "menu" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
             >
               ORDER
-            </NavLink>
+            </Link>
           </div>
           <div className="text-black font-medium text-lg">
-            {" "}
-            <NavLink
-              to="/special"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-red-600 hover:text-red-600"
-                  : "text-black hover:text-red-600"
-              }
+            <Link
+              to="special"
+              smooth={true}
+              offset={-70}
+              duration={500}
+              spy={true}
+              onSetActive={() => handleSetActive("special")} // Set active link
+              className={activeLink === "special" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
             >
               MENU
-            </NavLink>
+            </Link>
           </div>
           <div className="text-black font-medium text-lg">
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-red-600 hover:text-red-600"
-                  : "text-black hover:text-red-600"
-              }
+            <Link
+              to="contact"
+              smooth={true}
+              offset={-70}
+              duration={500}
+              spy={true}
+              onSetActive={() => handleSetActive("contact")} // Set active link
+              className={activeLink === "contact" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
             >
               CONTACT
-            </NavLink>
+            </Link>
           </div>
           <div className="text-black font-medium text-lg flex">
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-red-600 hover:text-red-600"
-                  : "text-black hover:text-red-600"
-              }
+            <Link
+              to="cart"
+              smooth={true}
+              offset={-70}
+              duration={1000}
+              spy={true}
+              onSetActive={() => handleSetActive("cart")} // Set active link
+              className={activeLink === "cart" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
             >
               <FaShoppingCart className="p-1" size={30} />
-            </NavLink>
+            </Link>
             <span>{cartLength > 0 && <span>{cartLength}</span>}</span>
           </div>
         </div>

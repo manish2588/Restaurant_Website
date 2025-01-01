@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 
 function AboutPage() {
   return (
-    <>
-      <main className="lg:flex lg:space-x-2 w-full mt-8">
+    
+      <main className="lg:flex lg:space-x-2 w-full mt-0" id="about">
         <section
           id="description"
           className=" basis-1/2 px-4 lg:my-auto"
@@ -36,14 +36,14 @@ function AboutPage() {
 
         <section
           id="figure"
-          className=" basis-1/2 flex justify-center w-full h-screen"
+          className=" basis-1/2 flex justify-center w-full min-h-screen"
         >
           <div className=" lg:w-3/5 lg:h-4/5 lg:my-auto overflow-hidden">
             <img src="/image/BG.jpg" className="h-full p-4 lg:p-0 hover:scale-110 duration-1000 ease-in-out " />
           </div>
         </section>
       </main>
-    </>
+    
   );
 }
 

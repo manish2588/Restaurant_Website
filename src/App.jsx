@@ -1,48 +1,33 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AppLayout from "./components/AppLayout";
-import "./App.css";
-import AboutPage from "./pages/AboutPage";
-import FoodPage from "./pages/FoodPage";
-import { foodLoader } from "./components/Loader";
-import TodaySpecial from "./pages/TodaySpecial";
+import AboutPage from "@/pages/AboutPage";
+import TodaySpecial from "@/pages/TodaySpecial";
+import ContactPage from "@/pages/ContactPage";
+import Header from "./components/Header";
+import TastyPage from "./pages/FoodPage";
 import CartPage from "./pages/CartPage";
-import ContactPage from "./pages/ContactPage";
 
-function App() {
-  const router=createBrowserRouter([
-    {
-      path:"/",
-      element:<AppLayout/>,
-      children:[
-        {
-          path:"about",
-          element:<AboutPage/>
-        },
-        {
-          path:"menu",
-          element:<FoodPage/>,
-          loader:foodLoader
-        },
-        {
-          path:"special",
-          element:<TodaySpecial/>
-        },
-        {
-          path:"cart",
-          element:<CartPage/>,
-        },
-        {
-          path:"contact",
-          element:<ContactPage/>
-        }
-      ]
-    }
-  ])
+function AppLayout() {
   return (
     <>
-     <RouterProvider router={router}/>
+      <div>
+        <Header />
+        <div id="about" className="min-h-screen m-0 p-0 ">
+          <AboutPage />
+        </div>
+        <div id="menu" className="min-h-screen m-0 p-0">
+          <TastyPage />
+        </div>
+        <div id="special" className="min-h-screen m-0 p-0">
+          <TodaySpecial />
+        </div>
+        <div id="cart" className="min-h-screen m-0 p-0">
+          <CartPage />
+        </div>
+        <div id="contact" className="min-h-screen m-0 p-0">
+          <ContactPage />
+        </div>
+      </div>
     </>
   );
 }
 
-export default App;
+export default AppLayout;
