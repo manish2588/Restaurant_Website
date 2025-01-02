@@ -54,7 +54,7 @@ function TastyPage() {
   }
 
   return (
-    <div className="p-8 bg-orange-200" id="order">
+    <div className="p-8 bg-orange-400" id="order">
       {alertMessage && (
         <div className="fixed z-50 top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
           {alertMessage}
