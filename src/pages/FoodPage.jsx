@@ -49,6 +49,7 @@ function TastyPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <LoadingSpinner />
+        <h1>Loading</h1>
       </div>
     );
   }
