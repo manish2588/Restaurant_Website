@@ -18,7 +18,7 @@ function TastyPage() {
     axios
       .get("https://tasty.p.rapidapi.com/recipes/list", {
         params: {
-          from: "0", // Starting index
+          from: "40", // Starting index
           size: "20", // Number of items to fetch
         },
         headers: {
