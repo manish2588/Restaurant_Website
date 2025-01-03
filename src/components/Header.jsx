@@ -1,28 +1,65 @@
 import NavBar from "./NavBar";
+import { easeInOut, motion } from "framer-motion";
 
 function Header() {
   return (
     <div className="relative">
-      {/* Background image with overlay */}
-      <div className="bg-slate-300 h-screen w-full bg-[url('/image/BG.jpg')] bg-cover bg-no-repeat bg-center relative">
+     
+      <motion.div className="bg-slate-300 h-screen w-full bg-[url('/image/BG.jpg')] bg-cover bg-no-repeat bg-center relative"
+      initial={{opacity:0}}
+      animate={{opacity:[0.5,1]}}
+      transition={{
+        duration:1,
+        ease:easeInOut
+      }}
+      >
         {/* Dark overlay for better text visibility */}
         <div className="absolute inset-0 bg-gray-600 opacity-50"></div>
 
-        {/* Fixed Navbar */}
+       
         <div className="fixed w-full z-50">
           <NavBar />
         </div>
 
-        {/* Header Content */}
+       
         <div className="flex flex-col justify-center items-center h-full w-full relative z-10">
-          <h1 className="text-white font-serif text-6xl font-medium text-center">
+          <motion.h1 className="text-white font-serif text-6xl font-medium text-center"
+          initial={{
+            x:-500
+          }}
+          animate={{
+            x:0,
+            transition:{
+              duration:0.5,
+              type:"spring",
+              damping:30,
+              ease:easeInOut
+              
+            }
+          }}
+          >
             Authentic Nepali
-          </h1>
-          <h1 className="text-white font-serif text-6xl font-medium text-center">
+          </motion.h1>
+          <motion.h1 className="text-white font-serif text-6xl font-medium text-center"
+           initial={{
+            x:1000
+          }}
+          animate={{
+            x:0,
+            transition:{
+              duration:0.5,
+              type:"spring",
+              damping:30,
+              ease:easeInOut,
+              delay:0.5
+              
+            }
+          }}
+          >
             Restaurant
-          </h1>
+          </motion.h1>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
