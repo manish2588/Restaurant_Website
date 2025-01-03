@@ -11,7 +11,18 @@ export function TabsDemo() {
         <TabsTrigger value="dessert">Dessert</TabsTrigger>
       </TabsList>
       <TabsContent value="non-veg">
-        <Card>
+        <motion.Card
+         initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: [0,0.25,0.5,1],
+          transition: {
+            duration: 1,
+            ease: easeInOut,
+          },
+        }}
+        >
           <CardHeader>
             <CardTitle className="font-serif">Non-Veg</CardTitle>
           </CardHeader>
@@ -41,10 +52,21 @@ export function TabsDemo() {
               </p>
             </div>
           </CardContent>
-        </Card>
+        </motion.Card>
       </TabsContent>
       <TabsContent value="veg">
-        <Card>
+        <motion.Card
+         initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: [0,0.25,0.5,1],
+          transition: {
+            duration: 1,
+            ease: easeInOut,
+          },
+        }}
+        >
           <CardHeader>
             <CardTitle className="font-serif">Veg</CardTitle>
           </CardHeader>
@@ -74,7 +96,7 @@ export function TabsDemo() {
               <p className=" font-thin">(Steam Rice)</p>
             </div>
           </CardContent>
-        </Card>
+        </motion.Card>
       </TabsContent>
       <motion.div>
         <TabsContent value="dessert">
@@ -85,7 +107,7 @@ export function TabsDemo() {
             animate={{
               opacity: [0,0.25,0.5,1],
               transition: {
-                duration: 2,
+                duration: 1,
                 ease: easeInOut,
               },
             }}
