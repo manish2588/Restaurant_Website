@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
+import { easeInOut, motion } from "framer-motion";
 export function TabsDemo() {
   return (
     <Tabs defaultValue="non-veg" className="w-full">
@@ -10,7 +10,7 @@ export function TabsDemo() {
         <TabsTrigger value="veg">Veg</TabsTrigger>
         <TabsTrigger value="dessert">Dessert</TabsTrigger>
       </TabsList>
-      <TabsContent value="non-veg" >
+      <TabsContent value="non-veg">
         <Card>
           <CardHeader>
             <CardTitle className="font-serif">Non-Veg</CardTitle>
@@ -76,27 +76,42 @@ export function TabsDemo() {
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="dessert">
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-serif">Dessert</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <h1 className="font-serif font-medium">Shikarni</h1>
-              <p className=" font-thin">
-                (Sweet Yogurt Mixed With Cinamon, Cardamon Served With Dry
-                Fruits)
-              </p>
-            </div>
+      <motion.div>
+        <TabsContent value="dessert">
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: [0,0.25,0.5,1],
+              transition: {
+                duration: 2,
+                ease: easeInOut,
+              },
+            }}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-serif">Dessert</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <motion.div className="space-y-1">
+                  <h1 className="font-serif font-medium">Shikarni</h1>
+                  <p className=" font-thin">
+                    (Sweet Yogurt Mixed With Cinamon, Cardamon Served With Dry
+                    Fruits)
+                  </p>
+                </motion.div>
 
-            <div className="space-y-1">
-              <h1 className="font-serif font-medium">Ice-Cream</h1>
-              <p className=" font-thin">(Varieties of flavour)</p>
-            </div>
-          </CardContent>
-        </Card>
-      </TabsContent>
+                <div className="space-y-1">
+                  <h1 className="font-serif font-medium">Ice-Cream</h1>
+                  <p className=" font-thin">(Varieties of flavour)</p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </TabsContent>
+      </motion.div>
     </Tabs>
   );
 }
