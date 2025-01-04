@@ -60,7 +60,7 @@ export function TabsDemo() {
           opacity: 0,
         }}
         animate={{
-          opacity: [0,0.25,0.5,1],
+          opacity: [0,0.25,0.5,0.75,1],
           transition: {
             duration: 1,
             ease: easeInOut,
