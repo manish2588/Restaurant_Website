@@ -8,7 +8,7 @@ import {
   quantity_zero,
 } from "@/redux_toolkit/CardSlice";
 import LoadingSpinner from "../components/LoadingSpinner";
-
+import { motion } from "framer-motion";
 function OrderPage() {
   const [recipes, setRecipes] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
@@ -50,7 +50,7 @@ function OrderPage() {
     setAlertMessage(`${name} added to the cart!`);
     setTimeout(() => setAlertMessage(""), 3000);
     setOpenCardId(!openCardId);
-    dispatch(quantity_zero())
+    dispatch(quantity_zero());
   };
   const handleIncrement = () => {
     dispatch(inc_quantity());
@@ -96,7 +96,18 @@ function OrderPage() {
               </h2>
 
               <p className="flex space-x-5 justify-center items-center">
-                <button onClick={() => handleQuantity(recipe.id)}>Order</button>
+                <motion.button
+                  onClick={() => handleQuantity(recipe.id)}
+                  className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg px-4 py-1  hover:bg-teal-700 font-semibold font-sans"
+                  whileHover={{
+                    scale: 1.2,
+                    textShadow: '0px 0px 16px rgb(255,255,255)',
+                    boxShadow: '0px 0px 16px rgb(255,255,255)',
+                    transition: { duration: 1, type: 'spring', stiffness: 500 }
+                  }}
+                >
+                  Order
+                </motion.button>
                 <span className="text-center">${price.toFixed(2)}</span>
               </p>
 
@@ -104,21 +115,33 @@ function OrderPage() {
                 {openCardId === recipe.id && (
                   <div>
                     <div className="mt-4 flex justify-center items-center space-x-4">
-                      <button
+                      <motion.button
                         className="p-2 bg-red-500 text-white rounded-full"
                         onClick={handleDecrement}
+                        whileHover={{
+                          scale: 1.2,
+                          textShadow: '0px 0px 16px rgb(255,255,255)',
+                          boxShadow: '0px 0px 16px rgb(255,255,255)',
+                          transition: { duration: 1, type: 'spring', stiffness: 500 }
+                        }}
                       >
                         -
-                      </button>
+                      </motion.button>
                       <span className="text-lg font-bold">{orderQuantity}</span>
-                      <button
+                      <motion.button
                         className="p-2 bg-green-500 text-white rounded-full"
                         onClick={handleIncrement}
+                        whileHover={{
+                          scale: 1.2,
+                          textShadow: '0px 0px 16px rgb(255,255,255)',
+                          boxShadow: '0px 0px 16px rgb(255,255,255)',
+                          transition: { duration: 1, type: 'spring', stiffness: 500 }
+                        }}
                       >
                         +
-                      </button>
-                      <button
-                        className="p-1 bg-blue-400 rounded-lg hover:bg-blue-900"
+                      </motion.button>
+                      <motion.button
+                        className="px-4 py-1 rounded-lg bg-teal-600"
                         onClick={() =>
                           handleClick(
                             recipe.name,
@@ -127,9 +150,15 @@ function OrderPage() {
                             orderQuantity
                           )
                         }
+                        whileHover={{
+                          scale: 1.2,
+                          textShadow: '0px 0px 16px rgb(255,255,255)',
+                          boxShadow: '0px 0px 16px rgb(255,255,255)',
+                          transition: { duration: 1, type: 'spring', stiffness: 500 }
+                        }}
                       >
                         Add
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 )}

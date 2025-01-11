@@ -60,7 +60,7 @@ function NavBar() {
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
               <Link
-                to="menu"
+                to="order"
                 smooth={true}
                 offset={-60}
                 duration={1000}
@@ -73,7 +73,7 @@ function NavBar() {
             </div>
             <div className="text-white font-medium lg:text-lg text-base">
               <Link
-                to="special"
+                to="menu"
                 smooth={true}
                 offset={-60}
                 duration={1000}
@@ -149,7 +149,7 @@ function NavBar() {
           </div>
           <div className="text-black font-medium text-lg">
             <Link
-              to="menu"
+              to="order"
               smooth={true}
               offset={-70}
               duration={500}
@@ -162,7 +162,7 @@ function NavBar() {
           </div>
           <div className="text-black font-medium text-lg">
             <Link
-              to="special"
+              to="menu"
               smooth={true}
               offset={-70}
               duration={500}
