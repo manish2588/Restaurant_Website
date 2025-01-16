@@ -4,28 +4,24 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 function NavBar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to manage sidebar visibility
-  const [activeLink, setActiveLink] = useState(""); // State for active link
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
   const { cart } = useSelector((state) => state.cart);
   const cartLength = cart.length;
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // Handle active link change
   const handleSetActive = (to) => {
-    setActiveLink(to); // Update the active link when a section is in view
+    setActiveLink(to);
   };
 
   return (
     <div>
-      {/* Navbar Container */}
       <div className="bg-black opacity-75 p-2 lg:p-6">
         <div className="flex justify-between items-center">
-          {/* Hamburger Button for small screens */}
           <button onClick={toggleSidebar} className="lg:hidden p-4 text-white">
-            {/* Hamburger icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -42,9 +38,7 @@ function NavBar() {
             </svg>
           </button>
 
-          {/* Navbar links for larger screens */}
           <div className="hidden lg:flex justify-center space-x-8 lg:space-x-14 w-full max-w-6xl mx-auto">
-            {/* Centered horizontally */}
             <div className="text-white font-medium lg:text-lg text-base">
               <Link
                 to="about"
@@ -52,8 +46,12 @@ function NavBar() {
                 offset={-70}
                 duration={1000}
                 spy={true}
-                onSetActive={() => handleSetActive("about")} // Set active link
-                className={activeLink === "about" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+                onSetActive={() => handleSetActive("about")}
+                className={
+                  activeLink === "about"
+                    ? "text-red-600 font-bold"
+                    : "cursor-pointer hover:text-red-600"
+                }
               >
                 ABOUT RESTAURANT
               </Link>
@@ -65,8 +63,12 @@ function NavBar() {
                 offset={-60}
                 duration={1000}
                 spy={true}
-                onSetActive={() => handleSetActive("menu")} // Set active link
-                className={activeLink === "menu" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+                onSetActive={() => handleSetActive("menu")}
+                className={
+                  activeLink === "menu"
+                    ? "text-red-600 font-bold"
+                    : "cursor-pointer hover:text-red-600"
+                }
               >
                 ORDER
               </Link>
@@ -78,8 +80,12 @@ function NavBar() {
                 offset={-60}
                 duration={1000}
                 spy={true}
-                onSetActive={() => handleSetActive("special")} // Set active link
-                className={activeLink === "special" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+                onSetActive={() => handleSetActive("special")}
+                className={
+                  activeLink === "special"
+                    ? "text-red-600 font-bold"
+                    : "cursor-pointer hover:text-red-600"
+                }
               >
                 MENU
               </Link>
@@ -91,8 +97,12 @@ function NavBar() {
                 offset={-70}
                 duration={1000}
                 spy={true}
-                onSetActive={() => handleSetActive("cart")} // Set active link
-                className={activeLink === "cart" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+                onSetActive={() => handleSetActive("cart")}
+                className={
+                  activeLink === "cart"
+                    ? "text-red-600 font-bold"
+                    : "cursor-pointer hover:text-red-600"
+                }
               >
                 <FaShoppingCart className="p-1" size={30} />
               </Link>
@@ -105,8 +115,12 @@ function NavBar() {
                 offset={-70}
                 duration={1000}
                 spy={true}
-                onSetActive={() => handleSetActive("contact")} // Set active link
-                className={activeLink === "contact" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+                onSetActive={() => handleSetActive("contact")}
+                className={
+                  activeLink === "contact"
+                    ? "text-red-600 font-bold"
+                    : "cursor-pointer hover:text-red-600"
+                }
               >
                 CONTACT
               </Link>
@@ -115,18 +129,17 @@ function NavBar() {
         </div>
       </div>
 
-      {/* Sidebar for small screens */}
       <div
         className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 transition-all duration-300 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        onClick={toggleSidebar} // Close sidebar if clicked outside
+        onClick={toggleSidebar}
       >
         <div
           className={`bg-white w-64 h-full p-4 space-y-4 transition-all duration-300 transform ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
-          onClick={(e) => e.stopPropagation()} // Prevent closing sidebar when clicking inside
+          onClick={(e) => e.stopPropagation()}
         >
           <span
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -141,8 +154,12 @@ function NavBar() {
               offset={-70}
               duration={500}
               spy={true}
-              onSetActive={() => handleSetActive("about")} // Set active link
-              className={activeLink === "about" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              onSetActive={() => handleSetActive("about")}
+              className={
+                activeLink === "about"
+                  ? "text-red-600 font-bold"
+                  : "cursor-pointer hover:text-red-600"
+              }
             >
               ABOUT RESTAURANT
             </Link>
@@ -154,8 +171,12 @@ function NavBar() {
               offset={-70}
               duration={500}
               spy={true}
-              onSetActive={() => handleSetActive("menu")} // Set active link
-              className={activeLink === "menu" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              onSetActive={() => handleSetActive("menu")}
+              className={
+                activeLink === "menu"
+                  ? "text-red-600 font-bold"
+                  : "cursor-pointer hover:text-red-600"
+              }
             >
               ORDER
             </Link>
@@ -167,8 +188,12 @@ function NavBar() {
               offset={-70}
               duration={500}
               spy={true}
-              onSetActive={() => handleSetActive("special")} // Set active link
-              className={activeLink === "special" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              onSetActive={() => handleSetActive("special")}
+              className={
+                activeLink === "special"
+                  ? "text-red-600 font-bold"
+                  : "cursor-pointer hover:text-red-600"
+              }
             >
               MENU
             </Link>
@@ -180,8 +205,12 @@ function NavBar() {
               offset={-70}
               duration={500}
               spy={true}
-              onSetActive={() => handleSetActive("contact")} // Set active link
-              className={activeLink === "contact" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              onSetActive={() => handleSetActive("contact")}
+              className={
+                activeLink === "contact"
+                  ? "text-red-600 font-bold"
+                  : "cursor-pointer hover:text-red-600"
+              }
             >
               CONTACT
             </Link>
@@ -193,8 +222,12 @@ function NavBar() {
               offset={-70}
               duration={1000}
               spy={true}
-              onSetActive={() => handleSetActive("cart")} // Set active link
-              className={activeLink === "cart" ? "text-red-600 font-bold" : "cursor-pointer hover:text-red-600"}
+              onSetActive={() => handleSetActive("cart")}
+              className={
+                activeLink === "cart"
+                  ? "text-red-600 font-bold"
+                  : "cursor-pointer hover:text-red-600"
+              }
             >
               <FaShoppingCart className="p-1" size={30} />
             </Link>

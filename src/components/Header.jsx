@@ -13,7 +13,7 @@ function Header() {
         ease:easeInOut
       }}
       >
-        {/* Dark overlay for better text visibility */}
+        
         <div className="absolute inset-0 bg-gray-600 opacity-50"></div>
 
        

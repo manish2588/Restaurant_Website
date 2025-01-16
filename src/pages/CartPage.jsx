@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { delete_item } from "@/redux_toolkit/CardSlice";
 import { useState } from "react";
+
 function CartPage() {
   const { cart } = useSelector((state) => state.cart);
   console.log(cart);

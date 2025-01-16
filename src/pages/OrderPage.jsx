@@ -13,13 +13,13 @@ function OrderPage() {
   const [recipes, setRecipes] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  const [openCardId, setOpenCardId] = useState(null); // Track which card is open
+  const [openCardId, setOpenCardId] = useState(null); 
   const dispatch = useDispatch();
   const { orderQuantity } = useSelector((state) => state.cart);
   const price = 5;
 
   const handleQuantity = (id) => {
-    setOpenCardId(openCardId === id ? null : id); // Toggle open/close for specific card
+    setOpenCardId(openCardId === id ? null : id); 
   };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function OrderPage() {
         },
         headers: {
           "X-RapidAPI-Key":
-            "20d4d1bec9msh69cc707d26a6f2ep12529djsndef7467236a3",
+            "08be0cdb05msh0e37c122c21ff29p142befjsn2ed7119bbe26",
           "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         },
       })
